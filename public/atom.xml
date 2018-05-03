@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-02T02:27:01.306Z</updated>
+  <updated>2018-05-03T02:49:46.340Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前后端分离的重要性</title>
+    <link href="http://yoursite.com/2018/05/03/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7/"/>
+    <id>http://yoursite.com/2018/05/03/前后端分离的重要性/</id>
+    <published>2018-05-03T02:18:49.000Z</published>
+    <updated>2018-05-03T02:49:46.340Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前后端分离的意义和重要性（待完善）"><a href="#前后端分离的意义和重要性（待完善）" class="headerlink" title="前后端分离的意义和重要性（待完善）"></a>前后端分离的意义和重要性（待完善）</h3><h4 id="技术方面"><a href="#技术方面" class="headerlink" title="技术方面"></a>技术方面</h4><ol><li>前后端分开迭代，前端或后端需要频繁迭代时不影响另一端（修改数据逻辑不影响显示逻辑）</li><li>分离数据逻辑和表现逻辑(前后端耦合容易造成数据逻辑与表现逻辑混杂不清,这点在debug的时候尤其痛苦)</li><li>展示类，管理类（CMS）项目强烈建议前后端分离</li><li>前后端解耦方便维护（解耦有多张要就不多说了）。后端专注于提供数据，维护系统稳定，保证数据安全可靠（数据逻辑）。前端专注于交互和ui（表现逻辑）</li><li>可以个APP端和web端提供统一的接口（同样的业务逻辑如果要写N遍，头疼，debug或加功能还要加N遍，心烦）</li></ol><h4 id="人员方面"><a href="#人员方面" class="headerlink" title="人员方面"></a>人员方面</h4><ol><li>可以让每个员工变的更加专注，发挥TA自己最大的能力。前后端分离是为了更好的协作，在组织和流程上更加容易管理和达到比较高的效率</li><li>技术人员往往只能精通一个方面的技术（靠谱的全栈工程师还是少，或者说全栈工程师只是某个技术栈的全栈工程师）</li></ol><h4 id="综合方面"><a href="#综合方面" class="headerlink" title="综合方面"></a>综合方面</h4><ol><li>前后端分离对人员和技术的要求更低</li></ol><p><strong>前后端分离是指技术架构上的分离，而不是组织/流程、职位/工种的分离</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前后端分离的意义和重要性（待完善）&quot;&gt;&lt;a href=&quot;#前后端分离的意义和重要性（待完善）&quot; class=&quot;headerlink&quot; title=&quot;前后端分离的意义和重要性（待完善）&quot;&gt;&lt;/a&gt;前后端分离的意义和重要性（待完善）&lt;/h3&gt;&lt;h4 id=&quot;技术方面&quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>api迭代</title>
+    <link href="http://yoursite.com/2018/05/03/api%E8%BF%AD%E4%BB%A3/"/>
+    <id>http://yoursite.com/2018/05/03/api迭代/</id>
+    <published>2018-05-03T01:06:28.000Z</published>
+    <updated>2018-05-03T01:45:46.624Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="API迭代总结"><a href="#API迭代总结" class="headerlink" title="API迭代总结"></a>API迭代总结</h3><ol><li>升级要兼容旧版接口</li><li>坚持开闭原则(扩展开放，对修改关闭)</li><li>代码要符合最新定义的协议，不能存在部分没有升级的情况</li><li>注意生产环境和开发环境的代码和数据同步问题</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;API迭代总结&quot;&gt;&lt;a href=&quot;#API迭代总结&quot; class=&quot;headerlink&quot; title=&quot;API迭代总结&quot;&gt;&lt;/a&gt;API迭代总结&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;升级要兼容旧版接口&lt;/li&gt;
+&lt;li&gt;坚持开闭原则(扩展开放，对修改关闭)&lt;/li&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>项目改造总结</title>
