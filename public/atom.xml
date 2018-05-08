@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-03T02:53:02.879Z</updated>
+  <updated>2018-05-08T09:34:29.828Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>debug的一些方法</title>
+    <link href="http://yoursite.com/2018/05/08/debug%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/05/08/debug的一些方法/</id>
+    <published>2018-05-08T09:28:33.000Z</published>
+    <updated>2018-05-08T09:34:29.828Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="debug的一些方法"><a href="#debug的一些方法" class="headerlink" title="debug的一些方法"></a>debug的一些方法</h3><p><strong>线面方法部分前后顺序</strong></p><ol><li>确认问题的具体信息<blockquote><p>出现问题时一定要尽可能的收集错误信息，便于追踪问题</p></blockquote></li><li>查找日志<blockquote><p>在日志中查找出现问题的地方</p></blockquote></li><li>重现问题<blockquote><p>只有重现问题的时候才能调试。尝试修复bug后，通过重现问题检测bug修复情况</p></blockquote></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;debug的一些方法&quot;&gt;&lt;a href=&quot;#debug的一些方法&quot; class=&quot;headerlink&quot; title=&quot;debug的一些方法&quot;&gt;&lt;/a&gt;debug的一些方法&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;线面方法部分前后顺序&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IOC和DI</title>
+    <link href="http://yoursite.com/2018/05/07/IOC%E5%92%8CDI/"/>
+    <id>http://yoursite.com/2018/05/07/IOC和DI/</id>
+    <published>2018-05-07T03:49:31.000Z</published>
+    <updated>2018-05-08T09:34:51.411Z</updated>
+    
+    <content type="html"><![CDATA[<p>(待完成)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;(待完成)&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>编程语言强类型、弱类型、静态类型、动态类型的区别</title>
+    <link href="http://yoursite.com/2018/05/04/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%BC%BA%E7%B1%BB%E5%9E%8B%E3%80%81%E5%BC%B1%E7%B1%BB%E5%9E%8B%E3%80%81%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E3%80%81%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2018/05/04/编程语言强类型、弱类型、静态类型、动态类型的区别/</id>
+    <published>2018-05-04T03:40:52.000Z</published>
+    <updated>2018-05-04T07:25:15.081Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="编程语言强类型、弱类型、静态类型、动态类型的区别"><a href="#编程语言强类型、弱类型、静态类型、动态类型的区别" class="headerlink" title="编程语言强类型、弱类型、静态类型、动态类型的区别"></a>编程语言强类型、弱类型、静态类型、动态类型的区别</h3><p>之前一直没有好好了解编程语言类型的区别，现在来补补课。  </p><p>引用一个轮子哥的回答，判断语言类型的区别如下</p><blockquote><p>强类型：偏向于不容忍隐式类型转换。譬如说haskell的int就不能变成double<br>弱类型：偏向于容忍隐式类型转换。譬如说C语言的int可以变成double<br>静态类型：编译的时候就知道每一个变量的类型，因为类型错误而不能做的事情是语法错误。<br>动态类型：编译的时候不知道每一个变量的类型，因为类型错误而不能做的事情是运行时错误。譬如说你不能对一个数字a写a[10]当数组用。</p></blockquote><p>上述引用可以作为一般的判断规则</p><p>下面是主流编程语言的类型划分图  </p><p><img src="/images/programming_language.jpg" alt="Alt language">    </p><p><strong>下面用javascript, python, java说明一下</strong><br>先了解一个概念</p><h5 id="类型安全"><a href="#类型安全" class="headerlink" title="类型安全"></a>类型安全</h5><blockquote><p>类型安全就是说，同一段内存，在不同的地方，会被强制要求使用相同的办法来解释（interpret）<br>类型安全代码只访问被授权可以访问的内存位置。</p></blockquote><h4 id="强类型和弱类型"><a href="#强类型和弱类型" class="headerlink" title="强类型和弱类型"></a>强类型和弱类型</h4><p>强弱类型是指语言类型系统对类型检查的严格程度。强类型语言指定了数据类型后，如果不经过强制类型转换，他将永远是这个数据类型。弱类型刚好相反，他允许编译器进行隐式类型转换。 不是类型安全的<br><strong>下面举2个例子</strong><br>javascript是弱类型语言，允许隐式类型转换，int类型的2会被转换成String类型的”2”，所以得到的a = “12”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"1"</span> + <span class="number">2</span>;</span><br></pre></td></tr></table></figure></p><p>而python是强类型语言，不允许隐式类型转换。所以下面的代码会报错并提示类型错误。是类型安全的</p><pre><code class="python">a = <span class="string">"1"</span> + <span class="number">2</span>Traceback (most recent call last):  File <span class="string">"test.py"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;    a = <span class="string">"1"</span> + <span class="number">2</span>TypeError: must be str, <span class="keyword">not</span> int</code></pre><h4 id="静态和动态类型"><a href="#静态和动态类型" class="headerlink" title="静态和动态类型"></a>静态和动态类型</h4><p>动态类型在运行时才确定变量类型和执行类型检查，已python为例</p><pre><code class="python"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span><span class="meta">&gt;&gt;&gt; </span>type(a)&lt;type <span class="string">'int'</span>&gt;<span class="meta">&gt;&gt;&gt; </span>a = <span class="string">"s"</span><span class="meta">&gt;&gt;&gt; </span>type(a)&lt;type <span class="string">'str'</span>&gt;</code></pre><p>静态语言在编译时就可以知道变量类型和执行类型检查，已java为例，在执行javac的时候就会报错，提示类型错误</p><pre><code class="java"><span class="keyword">int</span> a = <span class="string">"a"</span>;Test.java:<span class="number">3</span>: 错误: 不兼容的类型: String无法转换为<span class="keyword">int</span>        <span class="keyword">int</span> a = <span class="string">"a"</span>;                ^<span class="number">1</span> 个错误</code></pre><p>如果只是简单的了解一下编程语言强类型、弱类型、静态类型、动态类型的区别，读到这里就可以了。下面是关于编程语言强类型、弱类型、静态类型、动态类型区别的详细和深层次的分析，涉及一下比较专业的名词和知识。</p><hr><p>（待续）</p><p>发现一遍比较详细的文章可以读一下，<a href="http://linianhui.cnblogs.com/p/plp-04-datatypes.html" title="数据类型" target="_blank" rel="noopener">数据类型</a>  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;编程语言强类型、弱类型、静态类型、动态类型的区别&quot;&gt;&lt;a href=&quot;#编程语言强类型、弱类型、静态类型、动态类型的区别&quot; class=&quot;headerlink&quot; title=&quot;编程语言强类型、弱类型、静态类型、动态类型的区别&quot;&gt;&lt;/a&gt;编程语言强类型、弱类型、静态
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>前后端分离的重要性</title>
