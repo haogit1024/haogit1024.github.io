@@ -31,18 +31,27 @@ unzip file.zip //解压zip
 #### 重命名
 
 例子：将目录A重命名为B
-> mv A B
+
+```base
+mv A B
+```
 
 #### 移动文件
 
 例子：将/a目录移动到/b下，并重命名为c
-> mv /a /b/c
+
+```base
+mv /a /b/c
+```
 
 #### 查看内存占用
 
-> sudo atop
-> free -h
-> top
+```base
+sudo atop
+free -h
+top
+```
+
 例如
 >ps -ef|grep java
 
