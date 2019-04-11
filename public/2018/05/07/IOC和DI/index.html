@@ -1,18 +1,234 @@
-<%- partial('_partial/head') %>
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>IOC和DI | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="spring IoC是spring的核心模块之一，几乎所有的spring学习教程或资料都提倡先了解spring IoC。spring IoC贯穿整个spring框架，所有的模块都是用spring IoC container管理bean。首先我们先来了解几个概念  耦合度 耦合度有高低之分   IoC https://www.zhihu.com/question/21386172?sort=crea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOC和DI">
+<meta property="og:url" content="http://yoursite.com/2018/05/07/IOC和DI/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="spring IoC是spring的核心模块之一，几乎所有的spring学习教程或资料都提倡先了解spring IoC。spring IoC贯穿整个spring框架，所有的模块都是用spring IoC container管理bean。首先我们先来了解几个概念  耦合度 耦合度有高低之分   IoC https://www.zhihu.com/question/21386172?sort=crea">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-08T01:45:35.929Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOC和DI">
+<meta name="twitter:description" content="spring IoC是spring的核心模块之一，几乎所有的spring学习教程或资料都提倡先了解spring IoC。spring IoC贯穿整个spring框架，所有的模块都是用spring IoC container管理bean。首先我们先来了解几个概念  耦合度 耦合度有高低之分   IoC https://www.zhihu.com/question/21386172?sort=crea">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
 <body>
   <div id="container">
     <div id="wrap">
-      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
-      <div class="outer">
-        <section id="main"><%- body %></section>
-        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
-          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
-        <% } %>
-      </div>
-      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
     </div>
-    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-    <%- partial('_partial/after-footer') %>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-IOC和DI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/07/IOC和DI/" class="article-date">
+  <time datetime="2018-05-07T03:49:31.000Z" itemprop="datePublished">2018-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IOC和DI
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>spring IoC是spring的核心模块之一，几乎所有的spring学习教程或资料都提倡先了解spring IoC。spring IoC贯穿整个spring框架，所有的模块都是用spring IoC container管理bean。<br>首先我们先来了解几个概念</p>
+<ul>
+<li>耦合度<blockquote>
+<p>耦合度有高低之分</p>
+</blockquote>
+</li>
+<li>IoC <a href="https://www.zhihu.com/question/21386172?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/21386172?sort=created</a>, <a href="https://my.oschina.net/zjzhai/blog/496006" target="_blank" rel="noopener">https://my.oschina.net/zjzhai/blog/496006</a> , <a href="https://blog.csdn.net/qq_22654611/article/details/52606960" target="_blank" rel="noopener">https://blog.csdn.net/qq_22654611/article/details/52606960</a><br>IoC即Inversion of Control是控制反转的意思，这是一种设计思想（模式）。用于解耦。传统的设计：当对象A需要对象B完成某项功能，对象A会创建对象B，此时A和B耦合（A依赖B）且耦合度比较高，A还要负责控制B的生命周期。</li>
+<li>DI<br>DI即Dependency Injection是控制反转的意思。DI要表达的是一个过程。对象通过构造函数参数、工厂方法参数或其他初始方法”注入”对象，这时候注入的对象和被被注入的对象的依赖关系。其实IoC和DI是同一个意思，只是观察的角度不同产生了两种说法或者说依赖注入更加具体。  <blockquote>
+<p>ps：也有人说控制反转（Inversion of Control）括依赖注入（Dependency Injection）和依赖查找（Dependency Lookup）两个部分。依赖注入和依赖查找组成了IoC</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h4><p>我们假设一个场景：对象A需要对象B完成某项功能<br>传统的设计下：对象A会创建对象B，此时A和B耦合（A依赖B）且耦合度比较高，A还要负责控制B的生命周期。<br>而在控制反转模式下，程序员会把定义好的对象交给IoC容器同一管理，而不是在对象内部创建，此时A和B耦合（A依赖B），但是依赖程度比较低，A不需要控制B的生命周期。对于这种对对象的控制权由需求方向第三方容器的转义称为控制反转。ioc的思想最核心的地方在于，资源不由使用资源的双方管理。  </p>
+<p>上述例子我们明白了两个问题  </p>
+<ol>
+<li>控制关系和控制内容：传统的程序是主动创建依赖对象，所以A控制B，而IOC模式下有专门的容器创建对象，所以控制关系是<strong>容器控制对象</strong>。控制的内容是<strong>创建、销毁等生命周期</strong>。  </li>
+<li>什么是反转和反转内容：有反转就有正转，程序主动创建以来对象称为正转，由第三方容器创建依赖对象及注入依赖对象称为反转。所以<strong>反转是由容器查找并注入依赖对象</strong>，反转的内容是<strong>依赖兑现的获取</strong>。  </li>
+</ol>
+<p>IoC的核心思想是资源不由使用资源的双方管理，而由不使用资源的第三方管理。</p>
+<h4 id="IOC-DI-的好处"><a href="#IOC-DI-的好处" class="headerlink" title="IOC(DI)的好处"></a>IOC(DI)的好处</h4><p>第一，资源集中管理，实现资源的可配置和易管理。第二，降低了使用资源双方的依赖程度，也就是我们说的耦合度。  </p>
+<ol>
+<li>资源集中管理，实现资源的可配置和易管理<br>如果每个对象都是主动去创建资源，会导致资源分散难于管理，稍有不慎还会导致重复创建资源和没有正确关闭资源导致内存泄漏。</li>
+<li>降低了使用资源双方的依赖程度，也就是我们说的耦合度<br>低耦合便于书写代码和维护代码</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/07/IOC和DI/" data-id="cjuaq6a7k0000joul1nmacnzq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/08/debug的一些方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          debug的一些方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/04/编程语言强类型、弱类型、静态类型、动态类型的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">编程语言强类型、弱类型、静态类型、动态类型的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/08/Spring-Security笔记/">Spring Security笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/22/事务/">事务</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/09/字符和字符编码/">字符和字符编码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/debug的一些方法/">debug的一些方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
   </div>
 </body>
 </html>

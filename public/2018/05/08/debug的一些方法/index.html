@@ -1,18 +1,226 @@
-<%- partial('_partial/head') %>
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>debug的一些方法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="debug的一些方法前面方法不分前后顺序  确认问题的具体信息 出现问题时一定要尽可能的收集错误信息，便于追踪问题   查找日志和数据库信息 在日志中查找出现问题的地方和出问题部分的数据库数据   重现问题 只有重现问题的时候才能调试。尝试修复bug后，通过重现问题检测bug修复情况    总结debug方法：复现，查数据库中的数据，log，断点，测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="debug的一些方法">
+<meta property="og:url" content="http://yoursite.com/2018/05/08/debug的一些方法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="debug的一些方法前面方法不分前后顺序  确认问题的具体信息 出现问题时一定要尽可能的收集错误信息，便于追踪问题   查找日志和数据库信息 在日志中查找出现问题的地方和出问题部分的数据库数据   重现问题 只有重现问题的时候才能调试。尝试修复bug后，通过重现问题检测bug修复情况    总结debug方法：复现，查数据库中的数据，log，断点，测试">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-10T03:56:07.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="debug的一些方法">
+<meta name="twitter:description" content="debug的一些方法前面方法不分前后顺序  确认问题的具体信息 出现问题时一定要尽可能的收集错误信息，便于追踪问题   查找日志和数据库信息 在日志中查找出现问题的地方和出问题部分的数据库数据   重现问题 只有重现问题的时候才能调试。尝试修复bug后，通过重现问题检测bug修复情况    总结debug方法：复现，查数据库中的数据，log，断点，测试">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
 <body>
   <div id="container">
     <div id="wrap">
-      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
-      <div class="outer">
-        <section id="main"><%- body %></section>
-        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
-          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
-        <% } %>
-      </div>
-      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
     </div>
-    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-    <%- partial('_partial/after-footer') %>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-debug的一些方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/08/debug的一些方法/" class="article-date">
+  <time datetime="2018-05-08T09:28:33.000Z" itemprop="datePublished">2018-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      debug的一些方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="debug的一些方法"><a href="#debug的一些方法" class="headerlink" title="debug的一些方法"></a>debug的一些方法</h3><p><strong>前面方法不分前后顺序</strong></p>
+<ol>
+<li>确认问题的具体信息<blockquote>
+<p>出现问题时一定要尽可能的收集错误信息，便于追踪问题</p>
+</blockquote>
+</li>
+<li>查找日志和数据库信息<blockquote>
+<p>在日志中查找出现问题的地方和出问题部分的数据库数据</p>
+</blockquote>
+</li>
+<li>重现问题<blockquote>
+<p>只有重现问题的时候才能调试。尝试修复bug后，通过重现问题检测bug修复情况</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>debug方法：复现，查数据库中的数据，log，断点，测试</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/08/debug的一些方法/" data-id="cjuaq6a7s0004jouload93s5o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/09/字符和字符编码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          字符和字符编码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/07/IOC和DI/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">IOC和DI</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/08/Spring-Security笔记/">Spring Security笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/22/事务/">事务</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/09/字符和字符编码/">字符和字符编码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/debug的一些方法/">debug的一些方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
   </div>
 </body>
 </html>
