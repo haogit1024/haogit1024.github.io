@@ -53,7 +53,10 @@ top
 ```
 
 例如
->ps -ef|grep java
+
+```base
+ps -ef|grep java
+```
 
 ```base
 czh       25068   1702  3 19:08 ?        00:00:50 /usr/bin/java -Djava.util.logging.config.file=/home/czh/tomcat9/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Dignore.endorsed.dirs= -classpath /home/czh/tomcat9/bin/bootstrap.jar:/home/czh/tomcat9/bin/tomcat-juli.jar -Dcatalina.base=/home/czh/tomcat9 -Dcatalina.home=/home/czh/tomcat9 -Djava.io.tmpdir=/home/czh/tomcat9/temp org.apache.catalina.startup.Bootstrap start
@@ -61,7 +64,9 @@ czh       29588  29549  0 19:32 pts/0    00:00:00 grep --color=auto java
 ```
 查到了java的进程id为 25068
 
->top -p 25068
+```base
+top -p 25068
+```
 
 ```base
  25068 czh       20   0 4102344 668584  16360 S   0.3 16.7   0:50.79 java 
