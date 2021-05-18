@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2021-05-18T07:49:24.144Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux常用命令</title>
+    <link href="http://yoursite.com/2019/04/11/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/04/11/Linux常用命令/</id>
+    <published>2019-04-11T02:01:23.000Z</published>
+    <updated>2021-05-18T07:49:24.144Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar –xvf file.tar //解压 tar包</span><br><span class="line">tar -xzvf file.tar.gz //解压tar.gz</span><br><span class="line">tar -xjvf file.tar.bz2 //解压 tar.bz2</span><br><span class="line">tar –xZvf file.tar.Z //解压tar.Z</span><br><span class="line">unrar e file.rar //解压rar</span><br><span class="line">unzip file.zip //解压zip</span><br></pre></td></tr></table></figure><ol><li>.tar 用 tar –xvf 解压</li><li>.gz 用 gzip -d或者gunzip 解压</li><li>.tar.gz和.tgz 用 tar –xzf 解压</li><li>.bz2 用 bzip2 -d或者用bunzip2 解压</li><li>.tar.bz2用tar –xjf 解压</li><li>.Z 用 uncompress 解压</li><li>.tar.Z 用tar –xZf 解压</li><li>.rar 用 unrar e解压</li><li>.zip 用 unzip 解压</li></ol><hr><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h4><p>例子：将目录A重命名为B</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv A B</span><br></pre></td></tr></table></figure><h4 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h4><p>例子：将/a目录移动到/b下，并重命名为c</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /a /b/c</span><br></pre></td></tr></table></figure><h4 id="查看内存占用"><a href="#查看内存占用" class="headerlink" title="查看内存占用"></a>查看内存占用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo atop</span><br><span class="line">free -h</span><br><span class="line">top</span><br></pre></td></tr></table></figure><p>例如</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep java</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">czh       25068   1702  3 19:08 ?        00:00:50 /usr/bin/java -Djava.util.logging.config.file=/home/czh/tomcat9/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Dignore.endorsed.dirs= -classpath /home/czh/tomcat9/bin/bootstrap.jar:/home/czh/tomcat9/bin/tomcat-juli.jar -Dcatalina.base=/home/czh/tomcat9 -Dcatalina.home=/home/czh/tomcat9 -Djava.io.tmpdir=/home/czh/tomcat9/temp org.apache.catalina.startup.Bootstrap start</span><br><span class="line">czh       29588  29549  0 19:32 pts/0    00:00:00 grep --color=auto java</span><br></pre></td></tr></table></figure><p>查到了java的进程id为 25068</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top -p 25068</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">25068 czh       20   0 4102344 668584  16360 S   0.3 16.7   0:50.79 java</span><br></pre></td></tr></table></figure><h4 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h4><p>用ufw管理防火墙和开放端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1.安装</span><br><span class="line">sudo apt-get install ufw</span><br><span class="line">2.启用</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny</span><br><span class="line">运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常。</span><br><span class="line">3.开启/禁用</span><br><span class="line">sudo ufw allow|deny [service]</span><br><span class="line">打开或关闭某个端口，例如：</span><br><span class="line">sudo ufw allow smtp　允许所有的外部IP访问本机的25/tcp (smtp)端口</span><br><span class="line">sudo ufw allow 22/tcp 允许所有的外部IP访问本机的22/tcp (ssh)端口</span><br><span class="line">sudo ufw allow 53 允许外部访问53端口(tcp/udp)</span><br><span class="line">sudo ufw allow from 192.168.1.100 允许此IP访问所有的本机端口</span><br><span class="line">sudo ufw allow proto udp 192.168.0.1 port 53 to 192.168.0.2 port 53</span><br><span class="line">sudo ufw deny smtp 禁止外部访问smtp服务</span><br><span class="line">sudo ufw delete allow smtp 删除上面建立的某条规则</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;解压&quot;&gt;&lt;a href=&quot;#解压&quot; class=&quot;headerlink&quot; title=&quot;解压&quot;&gt;&lt;/a&gt;解压&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security笔记</title>
+    <link href="http://yoursite.com/2019/04/08/Spring-Security%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2019/04/08/Spring-Security笔记/</id>
+    <published>2019-04-08T03:21:36.000Z</published>
+    <updated>2021-05-18T07:49:24.144Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常用的接口"><a href="#常用的接口" class="headerlink" title="常用的接口"></a>常用的接口</h2><h4 id="WebSecurityConfigurerAdapter"><a href="#WebSecurityConfigurerAdapter" class="headerlink" title="WebSecurityConfigurerAdapter"></a>WebSecurityConfigurerAdapter</h4><p>WebSecurityConfigurerAdapter主要用于配置Spring Security</p><h4 id="UserDetail"><a href="#UserDetail" class="headerlink" title="UserDetail"></a>UserDetail</h4><p>一个包含用户信息和权限信息的类</p><h4 id="UserDetailsService"><a href="#UserDetailsService" class="headerlink" title="UserDetailsService"></a>UserDetailsService</h4><p>用户给Spring Security返回一个UserDetail。把该接口的实现类配置成Spring Bean, Spring Security会默认使用该类返回的UserDetail来验权等操作</p><h4 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h4><ol><li>用户提交用户名和密码，后端将密码加密有和数据库密码比对。如果一样，返回JWT</li><li>用户使用JWT请求其他接口。后端获取用户名后从数据库中获取用户详细信息，然后校验权限和返回数据</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;常用的接口&quot;&gt;&lt;a href=&quot;#常用的接口&quot; class=&quot;headerlink&quot; title=&quot;常用的接口&quot;&gt;&lt;/a&gt;常用的接口&lt;/h2&gt;&lt;h4 id=&quot;WebSecurityConfigurerAdapter&quot;&gt;&lt;a href=&quot;#WebSecurityCo
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>事务</title>
+    <link href="http://yoursite.com/2018/05/22/%E4%BA%8B%E5%8A%A1/"/>
+    <id>http://yoursite.com/2018/05/22/事务/</id>
+    <published>2018-05-22T02:36:29.000Z</published>
+    <updated>2021-05-18T07:49:24.146Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="首先先复习一下事务的基本知识"><a href="#首先先复习一下事务的基本知识" class="headerlink" title="首先先复习一下事务的基本知识"></a>首先先复习一下事务的基本知识</h4><h5 id="事务介绍"><a href="#事务介绍" class="headerlink" title="事务介绍"></a>事务介绍</h5><p>事务（Transaction），在计算机中一般指对数据库众各种数据项的一个程序执行单元（对数据库的一组操作）。通过事务可以保证一个执行单元内的操作都成功时才更新数据的数据项，否则不会更新数据库。即我们常说的要么全部成功，要么全部失败。  </p><h5 id="事务的四个特性"><a href="#事务的四个特性" class="headerlink" title="事务的四个特性"></a>事务的四个特性</h5><ul><li>原子性（Atomic）<blockquote><p>原子在物理上是不可分割的，表示事务内的操作也是不可分割的，是一体的，所以原子性是指事务要么全部成功，要么全部失败。</p></blockquote></li><li>一致性<blockquote><p>忘了，回去翻书。大致上是指事务执行是从一个一致性状态转为另一个一致性状态</p></blockquote></li><li>隔离性<blockquote><p>在并发过程中，可能会有多个事务在处理形同的数据。事务之间不能互相干扰，多个事务之间要互相隔离</p></blockquote></li><li>持久性<blockquote><p>持久性是指事务提交后，对数据库的修改是永久性的  </p></blockquote></li></ul><h5 id="多个事务并发带来的问题"><a href="#多个事务并发带来的问题" class="headerlink" title="多个事务并发带来的问题"></a>多个事务并发带来的问题</h5><ul><li>脏读（Dirty reads）<blockquote><p>指一个事务读取到另一个事务修改但未提交的数据。如果修改数据事务回滚会导致读取数据事务获取到错误数据</p></blockquote></li><li>不可重复读（Nonrepeatable read）<blockquote><p>指一个事务内对同一个数据进行多次查询的到不同的结果。通常是查询间隔期间其他事务修改导致</p></blockquote></li><li>幻读（Phantom read）<blockquote><p>与不可重复读类似。指一个事务对一些数据的多次查询得到的数量不一致。通常是查询间隔期间其他事务插入或删除数据导致   </p></blockquote></li></ul><p><strong>PS：不可重复读重点是修改，幻读重点是插入和删除</strong></p><h5 id="事务隔离"><a href="#事务隔离" class="headerlink" title="事务隔离"></a>事务隔离</h5><p>事务隔离和并发控制类似，都是通过锁来实现的<br><strong>数据库中的各种锁我就不介绍了，用兴趣的同学可以自己找一下资料，这里只介绍数据库中常见的事务隔离级别</strong><br>|事务级别|脏读|不可重复读|幻读|<br>|—|—|—|—|<br>|READ_UNCOMMITTED|允许|允许|允许|<br>|READ_COMMITTED|禁止|允许|允许|<br>|REPEATABLE_READ|禁止|禁止|允许|<br>|SERIALIZABLE|禁止|禁止|禁止|<br>MySQL默认的事务级别是READ_COMMITTED  </p><p>ps：除了数据库的事务级别外，各种库和框架还实现了一些关于事务的其他功能。例如JDBC的数据隔离级别，spirng的事务传播和spirng自己的事务隔离级别。无论是数据库实现还是库、框架实现的功能都是程序员平时需要用到的  </p><p><strong>上面这些都是数据库实现的，下面是实践和代码层面的知识</strong></p><h4 id="spring中的事务（未完待续）"><a href="#spring中的事务（未完待续）" class="headerlink" title="spring中的事务（未完待续）"></a>spring中的事务（未完待续）</h4><h5 id="spring事务传播"><a href="#spring事务传播" class="headerlink" title="spring事务传播"></a>spring事务传播</h5><h5 id="spring事务隔离级别"><a href="#spring事务隔离级别" class="headerlink" title="spring事务隔离级别"></a>spring事务隔离级别</h5><h5 id="spring编程式事务和生明式事务"><a href="#spring编程式事务和生明式事务" class="headerlink" title="spring编程式事务和生明式事务"></a>spring编程式事务和生明式事务</h5><p>##### </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;首先先复习一下事务的基本知识&quot;&gt;&lt;a href=&quot;#首先先复习一下事务的基本知识&quot; class=&quot;headerlink&quot; title=&quot;首先先复习一下事务的基本知识&quot;&gt;&lt;/a&gt;首先先复习一下事务的基本知识&lt;/h4&gt;&lt;h5 id=&quot;事务介绍&quot;&gt;&lt;a href=&quot;#事
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>字符和字符编码</title>
+    <link href="http://yoursite.com/2018/05/09/%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/"/>
+    <id>http://yoursite.com/2018/05/09/字符和字符编码/</id>
+    <published>2018-05-09T09:56:49.000Z</published>
+    <updated>2021-05-18T07:49:24.148Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>debug的一些方法</title>
+    <link href="http://yoursite.com/2018/05/08/debug%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/05/08/debug的一些方法/</id>
+    <published>2018-05-08T09:28:33.000Z</published>
+    <updated>2021-05-18T07:49:24.145Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="debug的一些方法"><a href="#debug的一些方法" class="headerlink" title="debug的一些方法"></a>debug的一些方法</h3><p><strong>前面方法不分前后顺序</strong></p><ol><li>确认问题的具体信息<blockquote><p>出现问题时一定要尽可能的收集错误信息，便于追踪问题</p></blockquote></li><li>查找日志和数据库信息<blockquote><p>在日志中查找出现问题的地方和出问题部分的数据库数据</p></blockquote></li><li>重现问题<blockquote><p>只有重现问题的时候才能调试。尝试修复bug后，通过重现问题检测bug修复情况</p></blockquote></li></ol><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>debug方法：复现，查数据库中的数据，log，断点，测试</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;debug的一些方法&quot;&gt;&lt;a href=&quot;#debug的一些方法&quot; class=&quot;headerlink&quot; title=&quot;debug的一些方法&quot;&gt;&lt;/a&gt;debug的一些方法&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;前面方法不分前后顺序&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IOC和DI</title>
+    <link href="http://yoursite.com/2018/05/07/IOC%E5%92%8CDI/"/>
+    <id>http://yoursite.com/2018/05/07/IOC和DI/</id>
+    <published>2018-05-07T03:49:31.000Z</published>
+    <updated>2021-05-18T07:49:24.143Z</updated>
+    
+    <content type="html"><![CDATA[<p>spring IoC是spring的核心模块之一，几乎所有的spring学习教程或资料都提倡先了解spring IoC。spring IoC贯穿整个spring框架，所有的模块都是用spring IoC container管理bean。<br>首先我们先来了解几个概念</p><ul><li>耦合度<blockquote><p>耦合度有高低之分</p></blockquote></li><li>IoC <a href="https://www.zhihu.com/question/21386172?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/21386172?sort=created</a>, <a href="https://my.oschina.net/zjzhai/blog/496006" target="_blank" rel="noopener">https://my.oschina.net/zjzhai/blog/496006</a> , <a href="https://blog.csdn.net/qq_22654611/article/details/52606960" target="_blank" rel="noopener">https://blog.csdn.net/qq_22654611/article/details/52606960</a><br>IoC即Inversion of Control是控制反转的意思，这是一种设计思想（模式）。用于解耦。传统的设计：当对象A需要对象B完成某项功能，对象A会创建对象B，此时A和B耦合（A依赖B）且耦合度比较高，A还要负责控制B的生命周期。</li><li>DI<br>DI即Dependency Injection是控制反转的意思。DI要表达的是一个过程。对象通过构造函数参数、工厂方法参数或其他初始方法”注入”对象，这时候注入的对象和被被注入的对象的依赖关系。其实IoC和DI是同一个意思，只是观察的角度不同产生了两种说法或者说依赖注入更加具体。  <blockquote><p>ps：也有人说控制反转（Inversion of Control）括依赖注入（Dependency Injection）和依赖查找（Dependency Lookup）两个部分。依赖注入和依赖查找组成了IoC</p></blockquote></li></ul><h4 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h4><p>我们假设一个场景：对象A需要对象B完成某项功能<br>传统的设计下：对象A会创建对象B，此时A和B耦合（A依赖B）且耦合度比较高，A还要负责控制B的生命周期。<br>而在控制反转模式下，程序员会把定义好的对象交给IoC容器同一管理，而不是在对象内部创建，此时A和B耦合（A依赖B），但是依赖程度比较低，A不需要控制B的生命周期。对于这种对对象的控制权由需求方向第三方容器的转义称为控制反转。ioc的思想最核心的地方在于，资源不由使用资源的双方管理。  </p><p>上述例子我们明白了两个问题  </p><ol><li>控制关系和控制内容：传统的程序是主动创建依赖对象，所以A控制B，而IOC模式下有专门的容器创建对象，所以控制关系是<strong>容器控制对象</strong>。控制的内容是<strong>创建、销毁等生命周期</strong>。  </li><li>什么是反转和反转内容：有反转就有正转，程序主动创建以来对象称为正转，由第三方容器创建依赖对象及注入依赖对象称为反转。所以<strong>反转是由容器查找并注入依赖对象</strong>，反转的内容是<strong>依赖兑现的获取</strong>。  </li></ol><p>IoC的核心思想是资源不由使用资源的双方管理，而由不使用资源的第三方管理。</p><h4 id="IOC-DI-的好处"><a href="#IOC-DI-的好处" class="headerlink" title="IOC(DI)的好处"></a>IOC(DI)的好处</h4><p>第一，资源集中管理，实现资源的可配置和易管理。第二，降低了使用资源双方的依赖程度，也就是我们说的耦合度。  </p><ol><li>资源集中管理，实现资源的可配置和易管理<br>如果每个对象都是主动去创建资源，会导致资源分散难于管理，稍有不慎还会导致重复创建资源和没有正确关闭资源导致内存泄漏。</li><li>降低了使用资源双方的依赖程度，也就是我们说的耦合度<br>低耦合便于书写代码和维护代码</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;spring IoC是spring的核心模块之一，几乎所有的spring学习教程或资料都提倡先了解spring IoC。spring IoC贯穿整个spring框架，所有的模块都是用spring IoC container管理bean。&lt;br&gt;首先我们先来了解几个概念&lt;/p
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>编程语言强类型、弱类型、静态类型、动态类型的区别</title>
+    <link href="http://yoursite.com/2018/05/04/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%BC%BA%E7%B1%BB%E5%9E%8B%E3%80%81%E5%BC%B1%E7%B1%BB%E5%9E%8B%E3%80%81%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E3%80%81%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2018/05/04/编程语言强类型、弱类型、静态类型、动态类型的区别/</id>
+    <published>2018-05-04T03:40:52.000Z</published>
+    <updated>2021-05-18T07:49:24.148Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="编程语言强类型、弱类型、静态类型、动态类型的区别"><a href="#编程语言强类型、弱类型、静态类型、动态类型的区别" class="headerlink" title="编程语言强类型、弱类型、静态类型、动态类型的区别"></a>编程语言强类型、弱类型、静态类型、动态类型的区别</h3><p>之前一直没有好好了解编程语言类型的区别，现在来补补课。  </p><p>引用一个轮子哥的回答，判断语言类型的区别如下</p><blockquote><p>强类型：偏向于不容忍隐式类型转换。譬如说haskell的int就不能变成double<br>弱类型：偏向于容忍隐式类型转换。譬如说C语言的int可以变成double<br>静态类型：编译的时候就知道每一个变量的类型，因为类型错误而不能做的事情是语法错误。<br>动态类型：编译的时候不知道每一个变量的类型，因为类型错误而不能做的事情是运行时错误。譬如说你不能对一个数字a写a[10]当数组用。</p></blockquote><p>上述引用可以作为一般的判断规则</p><p>下面是主流编程语言的类型划分图  </p><p><img src="/images/programming_language.jpg" alt="Alt language">    </p><p><strong>下面用javascript, python, java说明一下</strong><br>先了解一个概念</p><h5 id="类型安全"><a href="#类型安全" class="headerlink" title="类型安全"></a>类型安全</h5><blockquote><p>类型安全就是说，同一段内存，在不同的地方，会被强制要求使用相同的办法来解释（interpret）<br>类型安全代码只访问被授权可以访问的内存位置。</p></blockquote><h4 id="强类型和弱类型"><a href="#强类型和弱类型" class="headerlink" title="强类型和弱类型"></a>强类型和弱类型</h4><p>强弱类型是指语言类型系统对类型检查的严格程度。强类型语言指定了数据类型后，如果不经过强制类型转换，他将永远是这个数据类型。弱类型刚好相反，他允许编译器进行隐式类型转换。 不是类型安全的<br><strong>下面举2个例子</strong><br>javascript是弱类型语言，允许隐式类型转换，int类型的2会被转换成String类型的”2”，所以得到的a = “12”<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"1"</span> + <span class="number">2</span>;</span><br></pre></td></tr></table></figure></p><p>而python是强类型语言，不允许隐式类型转换。所以下面的代码会报错并提示类型错误。是类型安全的</p><pre><code class="python">a = <span class="string">"1"</span> + <span class="number">2</span>Traceback (most recent call last):  File <span class="string">"test.py"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;    a = <span class="string">"1"</span> + <span class="number">2</span>TypeError: must be str, <span class="keyword">not</span> int</code></pre><h4 id="静态和动态类型"><a href="#静态和动态类型" class="headerlink" title="静态和动态类型"></a>静态和动态类型</h4><p>动态类型在运行时才确定变量类型和执行类型检查，已python为例</p><pre><code class="python"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span><span class="meta">&gt;&gt;&gt; </span>type(a)&lt;type <span class="string">'int'</span>&gt;<span class="meta">&gt;&gt;&gt; </span>a = <span class="string">"s"</span><span class="meta">&gt;&gt;&gt; </span>type(a)&lt;type <span class="string">'str'</span>&gt;</code></pre><p>静态语言在编译时就可以知道变量类型和执行类型检查，已java为例，在执行javac的时候就会报错，提示类型错误</p><pre><code class="java"><span class="keyword">int</span> a = <span class="string">"a"</span>;Test.java:<span class="number">3</span>: 错误: 不兼容的类型: String无法转换为<span class="keyword">int</span>        <span class="keyword">int</span> a = <span class="string">"a"</span>;                ^<span class="number">1</span> 个错误</code></pre><p>如果只是简单的了解一下编程语言强类型、弱类型、静态类型、动态类型的区别，读到这里就可以了。下面是关于编程语言强类型、弱类型、静态类型、动态类型区别的详细和深层次的分析，涉及一下比较专业的名词和知识。</p><hr><p>（待续）</p><p>发现一遍比较详细的文章可以读一下，<a href="http://linianhui.cnblogs.com/p/plp-04-datatypes.html" title="数据类型" target="_blank" rel="noopener">数据类型</a>  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;编程语言强类型、弱类型、静态类型、动态类型的区别&quot;&gt;&lt;a href=&quot;#编程语言强类型、弱类型、静态类型、动态类型的区别&quot; class=&quot;headerlink&quot; title=&quot;编程语言强类型、弱类型、静态类型、动态类型的区别&quot;&gt;&lt;/a&gt;编程语言强类型、弱类型、静态
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前后端分离的重要性</title>
+    <link href="http://yoursite.com/2018/05/03/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7/"/>
+    <id>http://yoursite.com/2018/05/03/前后端分离的重要性/</id>
+    <published>2018-05-03T02:18:49.000Z</published>
+    <updated>2021-05-18T07:49:24.147Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前后端分离的意义和重要性（待完善）"><a href="#前后端分离的意义和重要性（待完善）" class="headerlink" title="前后端分离的意义和重要性（待完善）"></a>前后端分离的意义和重要性（待完善）</h3><h4 id="技术方面"><a href="#技术方面" class="headerlink" title="技术方面"></a>技术方面</h4><ol><li>前后端分开迭代，前端或后端需要频繁迭代时不影响另一端（修改数据逻辑不影响显示逻辑）</li><li>分离数据逻辑和表现逻辑(前后端耦合容易造成数据逻辑与表现逻辑混杂不清,这点在debug的时候尤其痛苦)</li><li>展示类，管理类（CMS）项目强烈建议前后端分离</li><li>前后端解耦方便维护（解耦有多重要就不多说了）。后端专注于提供数据，维护系统稳定，保证数据安全可靠（数据逻辑）。前端专注于交互和ui（表现逻辑）</li><li>可以个APP端和web端提供统一的接口（同样的业务逻辑如果要写N遍，头疼，debug或加功能还要加N遍，心烦）</li></ol><h4 id="人员方面"><a href="#人员方面" class="headerlink" title="人员方面"></a>人员方面</h4><ol><li>可以让每个员工变的更加专注，发挥TA自己最大的能力。前后端分离是为了更好的协作，在组织和流程上更加容易管理和达到更高的效率</li><li>技术人员往往只能精通一个方面的技术（靠谱的全栈工程师还是少，或者说全栈工程师只是某个技术栈的全栈工程师）</li></ol><h4 id="综合方面"><a href="#综合方面" class="headerlink" title="综合方面"></a>综合方面</h4><ol><li>前后端分离对人员和技术的要求更低</li></ol><p><strong>前后端分离是指技术架构上的分离，而不是组织/流程、职位/工种的分离</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前后端分离的意义和重要性（待完善）&quot;&gt;&lt;a href=&quot;#前后端分离的意义和重要性（待完善）&quot; class=&quot;headerlink&quot; title=&quot;前后端分离的意义和重要性（待完善）&quot;&gt;&lt;/a&gt;前后端分离的意义和重要性（待完善）&lt;/h3&gt;&lt;h4 id=&quot;技术方面&quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>api迭代</title>
+    <link href="http://yoursite.com/2018/05/03/api%E8%BF%AD%E4%BB%A3/"/>
+    <id>http://yoursite.com/2018/05/03/api迭代/</id>
+    <published>2018-05-03T01:06:28.000Z</published>
+    <updated>2021-05-18T07:49:24.145Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="API迭代总结"><a href="#API迭代总结" class="headerlink" title="API迭代总结"></a>API迭代总结</h3><ol><li>升级要兼容旧版接口</li><li>坚持开闭原则(扩展开放，对修改关闭)</li><li>代码要符合最新定义的协议，不能存在部分没有升级的情况</li><li>注意生产环境和开发环境的代码和数据同步问题</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;API迭代总结&quot;&gt;&lt;a href=&quot;#API迭代总结&quot; class=&quot;headerlink&quot; title=&quot;API迭代总结&quot;&gt;&lt;/a&gt;API迭代总结&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;升级要兼容旧版接口&lt;/li&gt;
+&lt;li&gt;坚持开闭原则(扩展开放，对修改关闭)&lt;/li&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>项目改造总结</title>
+    <link href="http://yoursite.com/2018/05/02/%E9%A1%B9%E7%9B%AE%E6%94%B9%E9%80%A0%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/05/02/项目改造总结/</id>
+    <published>2018-05-02T01:51:30.000Z</published>
+    <updated>2021-05-18T07:49:24.149Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="项目改造总结了几点经验"><a href="#项目改造总结了几点经验" class="headerlink" title="项目改造总结了几点经验"></a>项目改造总结了几点经验</h3><ol><li>项目开始尽可能想到更多方面 </li><li>尽可能不要硬编码  </li><li>层次尽可能清晰   </li><li>实体关联关系一定要明确且不要随便乱改实体关联关系</li></ol><h4 id="项目开始尽可能想到更多方面"><a href="#项目开始尽可能想到更多方面" class="headerlink" title="项目开始尽可能想到更多方面"></a>项目开始尽可能想到更多方面</h4><p>根据代码大全的建议，项目开始之前想的越周到越好。在项目进行中修改项目架构和数据接口(添加表或者修改表之间的关系)都会早成项目管理混乱和代码混乱。例如：为了兼容和适应新的数据库表关系，代码中会出现很多兼容代码。这些代码看起来会很奇怪，可读性较差，增加维护难度。  </p><h4 id="尽可能不要硬编码"><a href="#尽可能不要硬编码" class="headerlink" title="尽可能不要硬编码"></a>尽可能不要硬编码</h4><p>这应该是基本要求了。一定要注意代码封装，写新的业务逻辑的时候，代码从高层向下一层一层抽象，例如：先抽象出controller, controller包含了整合业务的逻辑, 根据controller的要求去调用或写service, 然后service去调用或写dao。切记不能在写controller的时候碰到一个操作就转过去写service或dao, 应该先把controller写完。service同理, 先写完service再写dao。这是写新业务的方法, 在项目开始的时候，应该要先写一些可能用到的dao和service。</p><h4 id="层次尽可能清晰"><a href="#层次尽可能清晰" class="headerlink" title="层次尽可能清晰"></a>层次尽可能清晰</h4><p>代码一定要分层，层次要清晰，层与层之间的调用关系不能乱。</p><h4 id="实体关联关系一定要明确且不要随便乱改实体关联关系"><a href="#实体关联关系一定要明确且不要随便乱改实体关联关系" class="headerlink" title="实体关联关系一定要明确且不要随便乱改实体关联关系"></a>实体关联关系一定要明确且不要随便乱改实体关联关系</h4><p>更改实体关系，会产生一部分旧数据用的是以前的关联关系。更改实体关联关系相当于重构一部分功能。因为要兼容旧数据，会导致代码混乱</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;项目改造总结了几点经验&quot;&gt;&lt;a href=&quot;#项目改造总结了几点经验&quot; class=&quot;headerlink&quot; title=&quot;项目改造总结了几点经验&quot;&gt;&lt;/a&gt;项目改造总结了几点经验&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;项目开始尽可能想到更多方面 &lt;/li&gt;
+&lt;li&gt;尽可能不
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

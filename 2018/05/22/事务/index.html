@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>事务 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先先复习一下事务的基本知识事务介绍事务（Transaction），在计算机中一般指对数据库众各种数据项的一个程序执行单元（对数据库的一组操作）。通过事务可以保证一个执行单元内的操作都成功时才更新数据的数据项，否则不会更新数据库。即我们常说的要么全部成功，要么全部失败。   事务的四个特性 原子性（Atomic） 原子在物理上是不可分割的，表示事务内的操作也是不可分割的，是一体的，所以原子性是指事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事务">
+<meta property="og:url" content="http://yoursite.com/2018/05/22/事务/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先先复习一下事务的基本知识事务介绍事务（Transaction），在计算机中一般指对数据库众各种数据项的一个程序执行单元（对数据库的一组操作）。通过事务可以保证一个执行单元内的操作都成功时才更新数据的数据项，否则不会更新数据库。即我们常说的要么全部成功，要么全部失败。   事务的四个特性 原子性（Atomic） 原子在物理上是不可分割的，表示事务内的操作也是不可分割的，是一体的，所以原子性是指事">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-05-18T07:49:24.146Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事务">
+<meta name="twitter:description" content="首先先复习一下事务的基本知识事务介绍事务（Transaction），在计算机中一般指对数据库众各种数据项的一个程序执行单元（对数据库的一组操作）。通过事务可以保证一个执行单元内的操作都成功时才更新数据的数据项，否则不会更新数据库。即我们常说的要么全部成功，要么全部失败。   事务的四个特性 原子性（Atomic） 原子在物理上是不可分割的，表示事务内的操作也是不可分割的，是一体的，所以原子性是指事">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-事务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/22/事务/" class="article-date">
+  <time datetime="2018-05-22T02:36:29.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      事务
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="首先先复习一下事务的基本知识"><a href="#首先先复习一下事务的基本知识" class="headerlink" title="首先先复习一下事务的基本知识"></a>首先先复习一下事务的基本知识</h4><h5 id="事务介绍"><a href="#事务介绍" class="headerlink" title="事务介绍"></a>事务介绍</h5><p>事务（Transaction），在计算机中一般指对数据库众各种数据项的一个程序执行单元（对数据库的一组操作）。通过事务可以保证一个执行单元内的操作都成功时才更新数据的数据项，否则不会更新数据库。即我们常说的要么全部成功，要么全部失败。  </p>
+<h5 id="事务的四个特性"><a href="#事务的四个特性" class="headerlink" title="事务的四个特性"></a>事务的四个特性</h5><ul>
+<li>原子性（Atomic）<blockquote>
+<p>原子在物理上是不可分割的，表示事务内的操作也是不可分割的，是一体的，所以原子性是指事务要么全部成功，要么全部失败。</p>
+</blockquote>
+</li>
+<li>一致性<blockquote>
+<p>忘了，回去翻书。大致上是指事务执行是从一个一致性状态转为另一个一致性状态</p>
+</blockquote>
+</li>
+<li>隔离性<blockquote>
+<p>在并发过程中，可能会有多个事务在处理形同的数据。事务之间不能互相干扰，多个事务之间要互相隔离</p>
+</blockquote>
+</li>
+<li>持久性<blockquote>
+<p>持久性是指事务提交后，对数据库的修改是永久性的  </p>
+</blockquote>
+</li>
+</ul>
+<h5 id="多个事务并发带来的问题"><a href="#多个事务并发带来的问题" class="headerlink" title="多个事务并发带来的问题"></a>多个事务并发带来的问题</h5><ul>
+<li>脏读（Dirty reads）<blockquote>
+<p>指一个事务读取到另一个事务修改但未提交的数据。如果修改数据事务回滚会导致读取数据事务获取到错误数据</p>
+</blockquote>
+</li>
+<li>不可重复读（Nonrepeatable read）<blockquote>
+<p>指一个事务内对同一个数据进行多次查询的到不同的结果。通常是查询间隔期间其他事务修改导致</p>
+</blockquote>
+</li>
+<li>幻读（Phantom read）<blockquote>
+<p>与不可重复读类似。指一个事务对一些数据的多次查询得到的数量不一致。通常是查询间隔期间其他事务插入或删除数据导致   </p>
+</blockquote>
+</li>
+</ul>
+<p><strong>PS：不可重复读重点是修改，幻读重点是插入和删除</strong></p>
+<h5 id="事务隔离"><a href="#事务隔离" class="headerlink" title="事务隔离"></a>事务隔离</h5><p>事务隔离和并发控制类似，都是通过锁来实现的<br><strong>数据库中的各种锁我就不介绍了，用兴趣的同学可以自己找一下资料，这里只介绍数据库中常见的事务隔离级别</strong><br>|事务级别|脏读|不可重复读|幻读|<br>|—|—|—|—|<br>|READ_UNCOMMITTED|允许|允许|允许|<br>|READ_COMMITTED|禁止|允许|允许|<br>|REPEATABLE_READ|禁止|禁止|允许|<br>|SERIALIZABLE|禁止|禁止|禁止|<br>MySQL默认的事务级别是READ_COMMITTED  </p>
+<p>ps：除了数据库的事务级别外，各种库和框架还实现了一些关于事务的其他功能。例如JDBC的数据隔离级别，spirng的事务传播和spirng自己的事务隔离级别。无论是数据库实现还是库、框架实现的功能都是程序员平时需要用到的  </p>
+<p><strong>上面这些都是数据库实现的，下面是实践和代码层面的知识</strong></p>
+<h4 id="spring中的事务（未完待续）"><a href="#spring中的事务（未完待续）" class="headerlink" title="spring中的事务（未完待续）"></a>spring中的事务（未完待续）</h4><h5 id="spring事务传播"><a href="#spring事务传播" class="headerlink" title="spring事务传播"></a>spring事务传播</h5><h5 id="spring事务隔离级别"><a href="#spring事务隔离级别" class="headerlink" title="spring事务隔离级别"></a>spring事务隔离级别</h5><h5 id="spring编程式事务和生明式事务"><a href="#spring编程式事务和生明式事务" class="headerlink" title="spring编程式事务和生明式事务"></a>spring编程式事务和生明式事务</h5><p>##### </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/22/事务/" data-id="ckotqvpd8000aw0vtzpnsmljm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/08/Spring-Security笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Spring Security笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/09/字符和字符编码/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">字符和字符编码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/11/Linux常用命令/">Linux常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/08/Spring-Security笔记/">Spring Security笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/22/事务/">事务</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/09/字符和字符编码/">字符和字符编码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/debug的一些方法/">debug的一些方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
